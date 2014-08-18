@@ -1,4 +1,10 @@
 #!/bin/sh
+
+if [ "$#" -ne 1 ]; then
+    echo "Illegal number of parameters"
+    exit
+fi
+
 git branch | grep "* master"
 is_master=$?
 
