@@ -5,6 +5,11 @@ if [ "$#" -ne 1 ]; then
     exit
 fi
 
+git status | grep "Not a git repository"
+if [ $? -eq 1 ]; then
+    exit
+fi
+
 git branch | grep "* master"
 is_master=$?
 
