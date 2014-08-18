@@ -6,7 +6,7 @@ if [ "$#" -ne 1 ]; then
 fi
 
 git status | grep "Not a git repository"
-if [ $? -eq 1 ]; then
+if [ $? -eq 0 ]; then
     exit
 fi
 
@@ -19,7 +19,7 @@ exists=$?
 if [ $exists -eq 1 ] ; then
 	if [ $is_master -eq 0 ] ; then
 		git checkout -b $1
-		git push origin $1
+		git push -u origin $1
 	else
 		echo "Must be master"
 	fi
